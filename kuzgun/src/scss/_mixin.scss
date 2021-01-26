@@ -1,0 +1,45 @@
+/** MIXIN **/
+@mixin flex-display($display, $align-items, $justify-content) {
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+
+@mixin backgroundSize($parallax:inherit) {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: $parallax;
+}
+
+@mixin flexCenter($direction:row,$content : center) {
+    display: flex;
+    justify-content: $content;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+
+@mixin p_line_height {
+    line-height: 2.4rem;
+}
+
+@mixin newFilmItemHover {
+    color: $white;
+    cursor: pointer;
+    background-color: $hover;
+}
+
+@mixin primaryButtonList {
+    border-radius: .2rem;
+    padding: 1rem 4rem;
+    border: none;
+    background-color: $gray-color;
+    color: $white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/** MIXIN **/
+
+

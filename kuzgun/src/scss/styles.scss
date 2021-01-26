@@ -1,0 +1,633 @@
+@import 'responsive';
+@import 'mixin';
+@import 'variables';
+@import 'utilities';
+@import 'components';
+@import 'animations';
+
+//  RESPONSIVE HEADER 
+.open-menu, .close-menu {
+  font-size: 3rem;
+  color: $secondary-color;
+  cursor: pointer;
+  display: none;
+  transition: $general-transition;
+
+  @include media(large) {
+    display: block;
+  }
+}
+.open-menu {
+  margin-right: 2rem;
+}
+.open-menu:hover {
+  color: $primary-color;
+}
+
+#chek {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+
+//top header know1
+.top-header-know1 {
+
+  .container {
+    @include flex-display(flex, center, space-between);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include media(medium) {
+      display:none;
+    }
+
+
+    .top-social-menu {
+      display: flex;
+      
+
+      li {
+        margin: 0 1rem;
+        padding: 1rem;
+
+        @include media(large) {
+          margin: 0 .5rem;
+          padding: .5rem;
+        }
+
+        i {
+          
+            font-size: 1.9rem;
+            transition: $general-transition;
+            
+          }
+      }
+    }
+  }
+}
+
+
+//  TOP HEADER 
+.top-header {
+  border-bottom: 1px solid rgb(185, 179, 179);
+
+  .container {
+    @include flex-display(flex, center, space-between);
+
+    @include media(small) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+
+    .top-social-menu {
+      
+      display: flex;
+
+      @include media(small) {
+        order: 4;
+      }
+
+      li {
+        
+        margin: 0 1rem;
+        padding: 1rem;
+
+        @include media(large) {
+          margin: 0 .1rem;
+          padding: .1rem;
+        }
+
+        a {
+          
+          font-size: 2rem;
+          transition: $general-transition;
+        }
+
+        &:hover a {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .login-area {
+      span {
+        display: inline-block;
+
+        @include media(medium) {
+          display: none;
+        }
+      }
+
+      i {
+        display: none;
+        @include media(medium) {
+
+          display: inline-block;
+        }
+      }
+
+    }
+    .search-area {
+
+      @include media(large) {
+        align-self: flex-start;
+        margin-left: 2rem;
+      }
+
+      input[type="search"], button[type="submit"] {
+        border: none;
+        background-color: transparent;
+        color: $light-color;
+      }
+
+      input[type="search"] {
+        border-bottom: 1px solid $primary-color;
+        padding: .5rem;
+      }
+
+      button[type="submit"] {
+        margin-left: -5rem;
+      }
+    }
+  }
+}
+
+
+// NAV HEADER
+.nav-header {
+  background-color: $back;
+  @include media(large) {
+    position: fixed;
+   
+    top: 0;
+    width: 50%;
+    right: -50%;
+    z-index: 10;
+    height: 100vh;
+    transition: $general-transition;
+
+    &.active {
+      right: 0;
+    }
+  }
+
+  .navbar {
+    border-bottom:1px solid rgb(185, 179, 179);
+    @include flex-display(flex, center, space-between);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include media(large) {
+      flex-direction: column;
+    }
+
+    .navbar-list {
+      display: flex;
+
+
+      @include media(large) {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      li {
+        line-height: 8rem;
+        position: relative;
+        transition: $general-transition;
+
+        .dropdown {
+          
+          position: absolute;
+          background-color: lighten($back, 10%);
+          width: 150%;
+          left: 50%;
+          z-index: 10;
+          top: 12rem;
+          transition: $general-transition;
+          opacity: 0;
+          visibility: hidden;
+
+          li {
+            line-height: 4rem;
+          }
+        }
+
+        &:hover {
+          background-color: $primary-color;
+
+          & .dropdown {
+            opacity: 1;
+            visibility: visible;
+            top: 8rem;
+          }
+        }
+      }
+
+      a {
+        padding: 0 2rem;
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+      }
+
+      i {
+        color: $light-color;
+        font-size: 1.6rem;
+        margin-right: 1rem;
+      }
+    }
+
+
+  }
+}
+
+
+
+//breadcrumbs
+.breadcrumb {
+  margin-bottom:10rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.9rem;
+  margin-bottom: 2rem;
+  font-size:1.3rem;
+  
+  list-style: none;
+  background-color:  transparent;
+  border-radius:$border-radius;
+}
+.breadcrumb-item {
+  display: flex;
+  padding-left: 1rem;
+  
+
+  + .breadcrumb-item {
+    padding-left: 1rem;
+ 
+
+    &::before {
+      display: inline-block; 
+      color: $secondary-color;
+      
+     
+     
+    }
+  }
+  &.active {
+    color:$gray-color;
+  }
+
+  @include media(large) {
+    display:flex;
+    
+    
+  }
+
+  @include media(medium) {
+    display:flex;
+    padding: 1rem;
+  }
+
+  @include media(small) {
+    display:flex;
+    padding: 1rem;
+   
+  }
+}
+//breadcrumbs
+
+
+
+
+// MAIN SLIDER 
+
+.main-slider {
+  .single-slide {
+    position: relative;
+
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      .slide-content {
+        position: absolute;
+        top: 25%;
+        width: 75%;
+        padding: 7rem 7rem;
+      
+        animation: mainAni 3s ease-out;
+
+        @include media(large) {
+          width: 100%;
+          padding: 6rem 4rem;
+        }
+
+        @include media(medium) {
+          padding: 3rem 2rem;
+        }
+
+        @include media(small) {
+          padding: 2rem 1rem;
+        }
+
+        p {
+          font-size: 1.4rem;
+
+          @include media(medium) {
+            font-size: 1.2rem;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+// OWL CAROUSEL 
+.owl-theme {
+  position: relative;
+
+  .owl-dots {
+    position: absolute;
+    top: 50rem;
+    left: 40%;
+    z-index: 5;
+    display: flex;
+
+    @include media(large) {
+      top: 2rem;
+    }
+
+    @include media(medium) {
+      top: 1rem;
+    }
+
+    @include media(small) {
+      top: .5rem;
+    }
+
+
+    .owl-dot {
+      display: inline-block;
+      margin-left: 1.3rem;
+      width: 3.3rem;
+      height: 3.3rem;
+      text-align: center;
+      background-color: transparent;
+      transition: $general-transition;
+
+      &.active, &:hover {
+        color: $primary-color;
+
+        span {
+          background-color: transparent;
+        }
+      }
+
+      span {
+        font-size: 1.4rem;
+        font-family: $primary-font;
+        background: transparent;
+      }
+    }
+  }
+}
+
+
+
+
+
+// New Film GRID
+.new-films{
+  background-color: $light-color;
+
+  &-content{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-row-gap:4rem;
+    grid-column-gap:2rem;
+    grid-template-areas:'item-1 item-2 item-3 item-4 item-5'
+                        'item-6 item-7 item-8 item-9 item-10';
+
+
+                          @include media(large) {
+                            grid-template-columns: repeat(4, 1fr);
+                            grid-template-areas: 'item-1 item-2 item-3 item-4'
+                                                 'item-5 item-6 item-7 item-8'
+                                                 'item-9 item-9 item-10 item-10';
+                          }
+                        
+                          @include media(medium) {
+                            grid-template-columns: repeat(3, 1fr);
+                            grid-template-areas: 'item-1 item-2 item-3'
+                                                 'item-4 item-5 item-6'
+                                                 'item-7 item-8 item-9'
+                                                 'item-10 item-10 item-10';
+                                                 
+                          }
+                          @include media(small) {
+                            grid-template-columns: repeat(1, 1fr);
+                            grid-template-areas: 'item-1'
+                                                 'item-2'
+                                                 'item-3'
+                                                 'item-4'
+                                                 'item-5'
+                                                 'item-6'
+                                                 'item-7'
+                                                 'item-8'
+                                                 'item-9'
+                                                 'item-10';
+                          }
+
+
+   .new-film{
+       width:100%;
+       height:100%;
+       background-color: $hover;
+
+       &-thumbnail{
+           position: relative;
+           overflow:hidden;
+          img{
+              width:100%;
+              transition:$general-transition;
+          }
+          
+          &::after{
+              position: absolute;
+              top:0;
+              left:0;
+              content: '';
+              background-color: rgba($primary-color, .6);
+              width:100%;
+              height:100%;
+              visibility: hidden;
+              opacity:0;
+              transition:$general-transition;
+          }
+       }
+
+       &:hover, &:focus{
+        .new-film-thumbnail{
+            &::after{
+                visibility: visible;
+                opacity:0.6;
+            }
+
+            img{
+                transform: scale(1.1) rotate(3deg);
+                transition:$general-transition;
+            }
+
+            .rating{
+                opacity: 1;
+                transition:$general-transition;
+            }
+        }
+     }
+
+
+     &-content {
+        padding: 2rem;
+
+        .film-title {
+          margin-bottom: 1.2rem;
+          font-size: 1.8rem;
+          letter-spacing: 0;
+
+          a {
+            transition: $general-transition;
+
+            &:hover {
+              color: darken($primary-color, 20%);
+            }
+          }
+        }
+
+        .film-meta {
+          @include flex-display(flex, center, space-between);
+          font-size: 1.1rem;
+
+          .film-date {
+            font-size:1.5rem;
+            color: $primary-color;
+            
+            transition: $general-transition;
+
+            &:hover {
+              color: darken($primary-color, 20%);
+            }
+          }
+        }
+
+        p {
+          font-size: 1.3rem;
+          line-height: 1.8;
+          color:$gray-color;
+        }
+      }
+    }
+  }
+}
+// New Film GRID
+
+
+
+// Gündem   
+.yeni-gundem {
+  display: flex;
+  background-color: $light-color;
+  height: 8rem;
+  align-items: center;
+
+  @include media(medium) {
+    flex-direction: column;
+  }
+
+  &-title {
+    flex-basis: 25%;
+    text-align: right;
+    padding-right: 2rem;
+  }
+
+  &-content {
+    flex-basis: 75%;
+    background-image: linear-gradient(to right, $light-color);
+    height: 100%;
+    .news-ticker {
+      @include flex-display(flex, center, space-between);
+      line-height: 8rem;
+
+      @include media(medium) {
+        line-height: 4rem;
+      }
+
+      p {
+        color: $gray-color;
+        font-size: 1.4rem;
+
+        @include media(medium) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+/** Gündem  **/ 
+
+
+
+
+
+
+/*footer */
+.features {
+  background-image: linear-gradient(to right, $light-color, #f7f6f1);
+  &__cardsContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      @include media(small) {
+          justify-content: center;
+      }
+      .featuresCardItem {
+        @include media(medium) {
+              flex: 0 0 calc((100% / 2) - 1rem);
+          }
+          @include media(small) {
+              flex: 0 0 100%;
+          }
+          display: flex;  
+          flex: 0 0 calc((100% / 3) - 1rem);
+          border-radius: .2rem;
+          color: $gray-color;
+          transition: all .3s;
+          &__icon {
+            color:$gray-color;
+              font-size: 2rem;
+          }
+
+          &:hover {
+              background-color: $hover;        
+          }
+      }
+    }
+  }
+
+/*footer */
+
+
+
+
